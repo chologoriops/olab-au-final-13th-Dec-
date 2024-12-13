@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-y: scroll; /* Prevent layout shift */
+  }
+
+  body {
+    @apply text-gray-100 antialiased bg-[#0A0F1C];
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center px-6 py-3 rounded-lg font-semibold transition-colors;
+  }
+
+  .btn-primary {
+    @apply bg-[#ff6b00] text-white hover:bg-[#FFB54E];
+  }
+
+  .btn-outline {
+    @apply border-2 border-white text-white hover:bg-white hover:text-gray-900;
+  }
+
+  .section-block {
+    @apply relative border border-gray-800 rounded-lg backdrop-blur-sm bg-gray-900/30;
+  }
+
+  .video-wrapper {
+    @apply relative pt-[56.25%] w-full overflow-hidden rounded-xl;
+  }
+
+  .video-wrapper iframe {
+    @apply absolute top-0 left-0 w-full h-full border-0;
+  }
+}
+
+@keyframes expand {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-expand {
+  animation: expand 1s ease-out forwards;
+}
+
+.stroke-dashoffset-0 {
+  stroke-dashoffset: 0;
+}
+
+.hover\:pause:hover > * {
+  animation-play-state: paused;
+}
